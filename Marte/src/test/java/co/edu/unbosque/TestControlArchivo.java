@@ -7,11 +7,11 @@
 package co.edu.unbosque;
 
 import co.edu.unbosque.marte.ControladorArchivo;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -40,10 +40,33 @@ public class TestControlArchivo {
     }
     
    @Test
-   public void obtenerElTamañoDelTablero() throws FileNotFoundException{
+   public void obtenerElTamañoDelTablero() throws FileNotFoundException, IOException{
        ControladorArchivo c=new ControladorArchivo("d:/juego.txt");
-       String linea=c.getPrimeraLinea();
+       String linea=c.getTamañoDelTablero();
        Assert.assertEquals(linea, "7 8");  
+   }
+   
+   @Test
+   public void obtenerPosicionDelExplorador() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("d:/juego.txt");
+       String linea=c.getPosicionDelExplorador();
+       Assert.assertEquals(linea, "0 0 N");  
+   }
+   
+   @Test
+   public void obtenerInstruccionDelExploracion() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("d:/juego.txt");
+       String linea=c.getInstruccionDeExploracion();
+       Assert.assertEquals(linea, "AAIAADDIA");    
+   }
+   
+   @Test
+   public void esElFinDelaArchivo() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("d:/juego.txt");
+       String linea=c.getElFinDelaArchivo();
+       Assert.assertEquals(linea, "null"); 
+       
+       
    }
     
     
