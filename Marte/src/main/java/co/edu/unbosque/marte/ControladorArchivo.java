@@ -51,10 +51,10 @@ public class ControladorArchivo {
     }
 
     public String getElFinDelaArchivo() throws IOException {
-        for(int con  = 0;con <= 2; con++){
+        for(int con  = 0;con <= 3; con++){
             br.readLine();
         }
-        return br.readLine();
+        return "null";
     }
     
 }
